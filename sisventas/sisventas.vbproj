@@ -76,6 +76,7 @@
     <Compile Include="Class1.vb" />
     <Compile Include="Datos\conexion.vb" />
     <Compile Include="Datos\fcliente.vb" />
+    <Compile Include="Logica\vcliente.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -123,7 +124,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Logica\" />
     <Folder Include="Reportes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
