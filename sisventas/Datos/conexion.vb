@@ -1,9 +1,12 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class conexion
-    Protected cnn As New SqlConnection 'creamos una variable para establecer la conexion con la base de datos
+    'creamos una variable para establecer la conexion con la base de datos
+    Protected cnn As New SqlConnection
+
     'creamos la funcion para conectar con la base de datos
     Public idusuario As Integer
+
     Protected Function conectado()
         Try
             'creamos la cadena de conexion

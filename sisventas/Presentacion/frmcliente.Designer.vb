@@ -22,9 +22,10 @@ Partial Class frmcliente
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnCancelar = New System.Windows.Forms.Button()
-        Me.btnEditar = New System.Windows.Forms.Button()
+        Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtDNI = New System.Windows.Forms.TextBox()
@@ -45,15 +46,19 @@ Partial Class frmcliente
         Me.cboCampo = New System.Windows.Forms.ComboBox()
         Me.dataListado = New System.Windows.Forms.DataGridView()
         Me.Eliminar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.erroricono = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.btnEditar = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dataListado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.btnCancelar)
         Me.GroupBox1.Controls.Add(Me.btnEditar)
+        Me.GroupBox1.Controls.Add(Me.btnCancelar)
+        Me.GroupBox1.Controls.Add(Me.btnGuardar)
         Me.GroupBox1.Controls.Add(Me.btnNuevo)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.txtDNI)
@@ -87,16 +92,16 @@ Partial Class frmcliente
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = False
         '
-        'btnEditar
+        'btnGuardar
         '
-        Me.btnEditar.BackColor = System.Drawing.Color.Teal
-        Me.btnEditar.ForeColor = System.Drawing.Color.White
-        Me.btnEditar.Location = New System.Drawing.Point(145, 346)
-        Me.btnEditar.Name = "btnEditar"
-        Me.btnEditar.Size = New System.Drawing.Size(75, 23)
-        Me.btnEditar.TabIndex = 13
-        Me.btnEditar.Text = "Editar"
-        Me.btnEditar.UseVisualStyleBackColor = False
+        Me.btnGuardar.BackColor = System.Drawing.Color.Teal
+        Me.btnGuardar.ForeColor = System.Drawing.Color.White
+        Me.btnGuardar.Location = New System.Drawing.Point(151, 346)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(75, 23)
+        Me.btnGuardar.TabIndex = 13
+        Me.btnGuardar.Text = "Guardar"
+        Me.btnGuardar.UseVisualStyleBackColor = False
         '
         'btnNuevo
         '
@@ -274,6 +279,21 @@ Partial Class frmcliente
         Me.Eliminar.HeaderText = "Eliminar"
         Me.Eliminar.Name = "Eliminar"
         '
+        'erroricono
+        '
+        Me.erroricono.ContainerControl = Me
+        '
+        'btnEditar
+        '
+        Me.btnEditar.BackColor = System.Drawing.Color.Teal
+        Me.btnEditar.ForeColor = System.Drawing.Color.White
+        Me.btnEditar.Location = New System.Drawing.Point(151, 346)
+        Me.btnEditar.Name = "btnEditar"
+        Me.btnEditar.Size = New System.Drawing.Size(75, 23)
+        Me.btnEditar.TabIndex = 15
+        Me.btnEditar.Text = "Editar"
+        Me.btnEditar.UseVisualStyleBackColor = False
+        '
         'frmcliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -289,6 +309,7 @@ Partial Class frmcliente
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.dataListado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.erroricono, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -307,7 +328,7 @@ Partial Class frmcliente
     Friend WithEvents Label2 As Windows.Forms.Label
     Friend WithEvents txtNombres As Windows.Forms.TextBox
     Friend WithEvents btnCancelar As Windows.Forms.Button
-    Friend WithEvents btnEditar As Windows.Forms.Button
+    Friend WithEvents btnGuardar As Windows.Forms.Button
     Friend WithEvents btnNuevo As Windows.Forms.Button
     Friend WithEvents GroupBox2 As Windows.Forms.GroupBox
     Friend WithEvents cboCampo As Windows.Forms.ComboBox
@@ -316,4 +337,6 @@ Partial Class frmcliente
     Friend WithEvents txtBuscar As Windows.Forms.TextBox
     Friend WithEvents btnEliminar As Windows.Forms.Button
     Friend WithEvents Eliminar As Windows.Forms.DataGridViewCheckBoxColumn
+    Friend WithEvents erroricono As Windows.Forms.ErrorProvider
+    Friend WithEvents btnEditar As Windows.Forms.Button
 End Class

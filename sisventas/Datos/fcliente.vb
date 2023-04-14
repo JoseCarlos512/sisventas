@@ -2,7 +2,7 @@
 
 Public Class fcliente
 
-
+    'Herencia de la clase base
     Inherits conexion
     Dim cmd As New SqlCommand
 
@@ -28,6 +28,36 @@ Public Class fcliente
         Finally
             desconectado()
         End Try
+    End Function
+
+    Public Function insertar(ByVal dts As vcliente) As Boolean
+        Try
+            conectado()
+            cmd = New SqlCommand("insertar_cliente")
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Connection = cnn
+
+
+            cmd.Parameters.AddWithValue("@nombre", dts.gnombre)
+            cmd.Parameters.AddWithValue("@apellidos", dts.gapellidos)
+            cmd.Parameters.AddWithValue("@direccion", dts.gdireccion)
+            cmd.Parameters.AddWithValue("@telefono", dts.gtelefono)
+            cmd.Parameters.AddWithValue("@dni", dts.gdni)
+
+            If cmd.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+
+        Finally
+            desconectado()
+        End Try
+
     End Function
 
 
