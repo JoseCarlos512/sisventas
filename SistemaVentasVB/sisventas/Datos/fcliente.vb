@@ -60,5 +60,35 @@ Public Class fcliente
 
     End Function
 
+    Public Function editar(ByVal dts As vcliente) As Boolean
+        Try
+            conectado()
+            cmd = New SqlCommand("editar_cliente")
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Connection = cnn
+
+            cmd.Parameters.AddWithValue("@idcliente", dts.gidcliente)
+            cmd.Parameters.AddWithValue("@nombre", dts.gnombre)
+            cmd.Parameters.AddWithValue("@apellidos", dts.gapellidos)
+            cmd.Parameters.AddWithValue("@direccion", dts.gdireccion)
+            cmd.Parameters.AddWithValue("@telefono", dts.gtelefono)
+            cmd.Parameters.AddWithValue("@dni", dts.gdni)
+
+            If cmd.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+
+        Finally
+            desconectado()
+        End Try
+
+    End Function
+
 
 End Class

@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel
+Imports System.Windows.Forms
 
 Public Class frmcliente
 
@@ -129,6 +130,62 @@ Public Class frmcliente
     End Sub
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+        Dim result As DialogResult
+
+        result = MessageBox.Show("Realimente quiere editar los datos del cliente",
+                                 "Editar registro?",
+                                 MessageBoxButtons.OKCancel,
+                                 MessageBoxIcon.Question)
+
+        If result = DialogResult.OK Then
+
+            If Me.ValidateChildren = True And
+               txtIdCliente.Text <> "" And
+               txtNombres.Text <> "" And
+               txtApellidos.Text <> "" And
+               txtTelefono.Text <> "" And
+               txtDireccion.Text <> "" And
+               txtDNI.Text <> "" Then
+
+                Try
+                    Dim dts As New vcliente
+                    Dim func As New fcliente
+
+                    dts.gidcliente = txtIdCliente.Text
+                    dts.gnombre = txtNombres.Text
+                    dts.gapellidos = txtApellidos.Text
+                    dts.gdireccion = txtDireccion.Text
+                    dts.gtelefono = txtTelefono.Text
+                    dts.gdni = txtDNI.Text
+
+                    If func.editar(dts) Then
+                        MessageBox.Show("Cliente editado correctamente",
+                                        "Editar registro",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Question)
+                        mostrar()
+                        limpiar()
+                    Else
+                        MessageBox.Show("Cliente no editado",
+                                        "Error",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Error)
+
+                    End If
+
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+
+            Else
+                MessageBox.Show("Faltan agregar algunos campos",
+                                "Editar registro",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning)
+            End If
+
+        End If
+
 
     End Sub
 
@@ -169,6 +226,23 @@ Public Class frmcliente
             MsgBox("Faltan ingresar algunos datos")
 
         End If
+
+    End Sub
+
+    Private Sub dataListado_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dataListado.CellClick
+        txtIdCliente.Text = dataListado.SelectedCells.Item(1).Value
+        txtNombres.Text = dataListado.SelectedCells.Item(2).Value
+        txtApellidos.Text = dataListado.SelectedCells.Item(3).Value
+        txtDireccion.Text = dataListado.SelectedCells.Item(4).Value
+        txtTelefono.Text = dataListado.SelectedCells.Item(5).Value
+        txtDNI.Text = dataListado.SelectedCells.Item(6).Value
+
+        btnEditar.Visible = True
+        btnGuardar.Visible = False
+
+    End Sub
+
+    Private Sub dataListado_CellContentClick(sender As Object, e As Windows.Forms.DataGridViewCellEventArgs) Handles dataListado.CellContentClick
 
     End Sub
 End Class
