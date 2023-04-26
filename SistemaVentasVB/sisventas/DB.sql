@@ -135,3 +135,29 @@ delete from cliente where idcliente=@idcliente
 go
 
 
+-- PROCEDURES DE UN CRUD CATEGORIA
+create proc mostrar_categoria
+as
+select * from categoria order by idcategoria desc
+go
+
+create proc insertar_categoria
+@nombre_categoria varchar(50)
+as
+insert into categoria(nombre_categoria) values(@nombre_categoria)
+go
+
+create proc editar_categoria
+@idcategoria integer,
+@nombre_categoria varchar(50)
+as
+update categoria set nombre_categoria = @nombre_categoria
+where idcategoria = @idcategoria
+go
+
+create proc eliminar_categoria
+@idcategoria integer
+as
+delete from categoria where idcategoria=@idcategoria
+go
+
