@@ -161,3 +161,65 @@ as
 delete from categoria where idcategoria=@idcategoria
 go
 
+
+-- PRODUCTO
+
+alter table producto 
+add imagen image
+go
+
+create proc mostrar_producto 
+as
+select producto.idproducto, producto.idcategoria, categoria.nombre_categoria,
+	   producto.nombre, producto.descripcion, producto.stock, producto.precio_compra,
+	   producto.precio_venta, producto.fecha_vencimiento
+from producto
+inner join categoria
+on producto.idcategoria = categoria.idcategoria
+order by producto.idcategoria desc
+go
+
+create proc insertar_producto
+@idcategoria integer,
+@nombre varchar(50),
+@descripcion varchar(50),
+@stock decimal(18,2),
+@precio_compra decimal(18,2),
+@precio_venta decimal(18,2),
+@fecha_vencimiento date,
+@imagen image
+as
+insert into producto(idcategoria,nombre,descripcion,stock,precio_compra,precio_venta,fecha_vencimiento,imagen) 
+values(@idcategoria,@nombre,@descripcion,@stock,@precio_compra,@precio_venta,@fecha_vencimiento,@imagen)
+go
+
+create proc editar_producto
+@idproducto integer,
+@idcategoria integer,
+@nombre varchar(50),
+@descripcion varchar(50),
+@stock decimal(18,2),
+@precio_compra decimal(18,2),
+@precio_venta decimal(18,2),
+@fecha_vencimiento date,
+@imagen image
+as
+update producto
+set idcategoria = @idcategoria,
+nombre = @nombre,
+descripcion = @descripcion,
+stock = @stock,
+precio_compra = @precio_compra,
+precio_venta = @precio_venta,
+fecha_vencimiento = @fecha_vencimiento,
+imagen = @imagen
+where idproducto = @idproducto
+go
+
+
+
+create proc eliminar_producto
+@idproducto integer
+as
+delete from producto where idproducto=@idproducto
+go
