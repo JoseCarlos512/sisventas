@@ -123,3 +123,15 @@ direccion = @direccion,
 telefono = @telefono,
 dni = @dni
 where idcliente = @idcliente
+
+go
+
+
+-- PROCEDURE ELIMINAR CLIENTE
+create proc eliminar_cliente
+@idcliente integer
+as
+delete from cliente where idcliente=@idcliente
+go
+
+

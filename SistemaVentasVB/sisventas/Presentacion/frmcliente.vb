@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel
+Imports System.Security.Principal
 Imports System.Windows.Forms
 
 Public Class frmcliente
@@ -242,7 +243,70 @@ Public Class frmcliente
 
     End Sub
 
-    Private Sub dataListado_CellContentClick(sender As Object, e As Windows.Forms.DataGridViewCellEventArgs) Handles dataListado.CellContentClick
+    Private Sub dataListado_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dataListado.CellContentClick
+
+        If e.ColumnIndex = Me.dataListado.Columns.Item("Eliminar").Index Then
+
+            Dim chkcell As DataGridViewCheckBoxCell = Me.dataListado.Rows(e.RowIndex).Cells("Eliminar")
+            chkcell.Value = Not chkcell.Value
+        End If
+
+    End Sub
+
+    Private Sub cbo_eliminar_CheckedChanged(sender As Object, e As EventArgs) Handles cbo_eliminar.CheckedChanged
+        If cbo_eliminar.CheckState = CheckState.Checked Then
+            dataListado.Columns.Item("Eliminar").Visible = True
+        Else
+            dataListado.Columns.Item("Eliminar").Visible = False
+        End If
+    End Sub
+
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        Dim result As DialogResult
+
+        result = MessageBox.Show("Realmente quiere eliminar los clientes seleccionados",
+                                 "Eliminar registros",
+                                 MessageBoxButtons.OKCancel,
+                                 MessageBoxIcon.Question)
+
+        If result = DialogResult.OK Then
+            Try
+                For Each row As DataGridViewRow In dataListado.Rows
+                    Dim marcado As Boolean = Convert.ToBoolean(row.Cells("Eliminar").Value)
+
+                    If marcado Then
+
+                        Dim idCliente As Integer = Convert.ToInt32(row.Cells("idcliente").Value)
+
+                        System.Diagnostics.Debug.WriteLine(idCliente)
+                        Dim vdb As New vcliente
+                        Dim func As New fcliente
+                        vdb.gidcliente = idCliente
+
+                        If func.eliminar(vdb) Then
+                        Else
+                            MessageBox.Show("Cliente no fue eliminado",
+                                            "Eliminar registros",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Information)
+                        End If
+
+                    End If
+
+                Next
+                Call mostrar()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        Else
+            MessageBox.Show("Cancelando eliminacion de registros",
+                            "Eliminar registros",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information)
+            Call mostrar()
+        End If
+
+        Call limpiar()
 
     End Sub
 End Class

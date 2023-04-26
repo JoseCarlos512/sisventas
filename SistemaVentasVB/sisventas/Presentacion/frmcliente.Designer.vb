@@ -41,6 +41,7 @@ Partial Class frmcliente
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtIdCliente = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cbo_eliminar = New System.Windows.Forms.CheckBox()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.inexistente = New System.Windows.Forms.Label()
         Me.txtBuscar = New System.Windows.Forms.TextBox()
@@ -224,6 +225,7 @@ Partial Class frmcliente
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.White
+        Me.GroupBox2.Controls.Add(Me.cbo_eliminar)
         Me.GroupBox2.Controls.Add(Me.btnEliminar)
         Me.GroupBox2.Controls.Add(Me.inexistente)
         Me.GroupBox2.Controls.Add(Me.txtBuscar)
@@ -237,6 +239,16 @@ Partial Class frmcliente
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Listado de Clientes"
+        '
+        'cbo_eliminar
+        '
+        Me.cbo_eliminar.AutoSize = True
+        Me.cbo_eliminar.Location = New System.Drawing.Point(18, 65)
+        Me.cbo_eliminar.Name = "cbo_eliminar"
+        Me.cbo_eliminar.Size = New System.Drawing.Size(70, 17)
+        Me.cbo_eliminar.TabIndex = 16
+        Me.cbo_eliminar.Text = "Eliminar"
+        Me.cbo_eliminar.UseVisualStyleBackColor = True
         '
         'btnEliminar
         '
@@ -260,7 +272,7 @@ Partial Class frmcliente
         '
         'txtBuscar
         '
-        Me.txtBuscar.Location = New System.Drawing.Point(169, 47)
+        Me.txtBuscar.Location = New System.Drawing.Point(169, 28)
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.Size = New System.Drawing.Size(187, 20)
         Me.txtBuscar.TabIndex = 2
@@ -269,7 +281,7 @@ Partial Class frmcliente
         '
         Me.cboCampo.FormattingEnabled = True
         Me.cboCampo.Items.AddRange(New Object() {"nombre", "apellidos", "dni", "telefono"})
-        Me.cboCampo.Location = New System.Drawing.Point(18, 47)
+        Me.cboCampo.Location = New System.Drawing.Point(18, 28)
         Me.cboCampo.Name = "cboCampo"
         Me.cboCampo.Size = New System.Drawing.Size(133, 21)
         Me.cboCampo.TabIndex = 1
@@ -339,4 +351,5 @@ Partial Class frmcliente
     Friend WithEvents Eliminar As Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents erroricono As Windows.Forms.ErrorProvider
     Friend WithEvents btnEditar As Windows.Forms.Button
+    Friend WithEvents cbo_eliminar As Windows.Forms.CheckBox
 End Class
