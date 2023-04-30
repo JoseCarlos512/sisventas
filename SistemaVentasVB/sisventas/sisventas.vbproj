@@ -77,8 +77,10 @@
     <Compile Include="Datos\conexion.vb" />
     <Compile Include="Datos\fcategoria.vb" />
     <Compile Include="Datos\fcliente.vb" />
+    <Compile Include="Datos\fproducto.vb" />
     <Compile Include="Logica\vcategoria.vb" />
     <Compile Include="Logica\vcliente.vb" />
+    <Compile Include="Logica\vproducto.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -107,6 +109,12 @@
     <Compile Include="Presentacion\frmcliente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Presentacion\frmproducto.Designer.vb">
+      <DependentUpon>frmproducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmproducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -120,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmcliente.resx">
       <DependentUpon>frmcliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmproducto.resx">
+      <DependentUpon>frmproducto.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
