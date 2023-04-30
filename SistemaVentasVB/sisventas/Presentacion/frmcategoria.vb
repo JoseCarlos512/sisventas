@@ -2,10 +2,11 @@
 Imports System.Security.Principal
 Imports System.Windows.Forms
 
-Public Class frmcliente
+Public Class frmcategoria
 
     Private dt As New DataTable
-    Private Sub frmcliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    Private Sub frmcategoria_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         mostrar()
     End Sub
 
@@ -13,19 +14,15 @@ Public Class frmcliente
         btnGuardar.Visible = True
         btnEditar.Visible = False
 
-        txtNombres.Text = ""
-        txtApellidos.Text = ""
-        txtDireccion.Text = ""
-        txtTelefono.Text = ""
-        txtDNI.Text = ""
-        txtIdCliente.Text = ""
+        txtNombre.Text = ""
+        txtIdCategoria.Text = ""
 
     End Sub
 
     Private Sub mostrar()
 
         Try
-            Dim func As New fcliente
+            Dim func As New fcategoria
             dt = func.mostrar
             dataListado.Columns.Item("Eliminar").Visible = False
 
@@ -43,6 +40,7 @@ Public Class frmcliente
             End If
 
         Catch ex As Exception
+            System.Diagnostics.Debug.WriteLine("ERROR1!")
             MsgBox(ex.Message)
         End Try
 
@@ -54,7 +52,6 @@ Public Class frmcliente
         buscar()
 
     End Sub
-
 
     Private Sub buscar()
 
@@ -75,99 +72,59 @@ Public Class frmcliente
             End If
 
         Catch ex As Exception
+            System.Diagnostics.Debug.WriteLine("ERROR2!")
             MsgBox(ex.Message)
         End Try
     End Sub
-
 
     Private Sub ocultar_columnas()
         dataListado.Columns(1).Visible = False
     End Sub
 
-    Private Sub txtNombres_Validating(sender As Object, e As CancelEventArgs) Handles txtNombres.Validating
+    Private Sub txtNombre_Validating(sender As Object, e As CancelEventArgs) Handles txtNombre.Validating
         If DirectCast(sender, Windows.Forms.TextBox).Text.Length > 0 Then
             Me.erroricono.SetError(sender, "")
         Else
-            Me.erroricono.SetError(sender, "Ingrese el nombre del cliente porfavor, es un dato requerido")
-        End If
-    End Sub
-
-    Private Sub txtApellidos_Validating(sender As Object, e As CancelEventArgs) Handles txtApellidos.Validating
-        If DirectCast(sender, Windows.Forms.TextBox).Text.Length > 0 Then
-            Me.erroricono.SetError(sender, "")
-        Else
-            Me.erroricono.SetError(sender, "Ingrese el Apellidos del cliente porfavor, es un dato requerido")
-        End If
-    End Sub
-
-    Private Sub txtDireccion_Validating(sender As Object, e As CancelEventArgs) Handles txtDireccion.Validating
-        If DirectCast(sender, Windows.Forms.TextBox).Text.Length > 0 Then
-            Me.erroricono.SetError(sender, "")
-        Else
-            Me.erroricono.SetError(sender, "Ingrese el Direccion del cliente porfavor, es un dato requerido")
-        End If
-    End Sub
-
-    Private Sub txtTelefono_Validating(sender As Object, e As CancelEventArgs) Handles txtTelefono.Validating
-        If DirectCast(sender, Windows.Forms.TextBox).Text.Length > 0 Then
-            Me.erroricono.SetError(sender, "")
-        Else
-            Me.erroricono.SetError(sender, "Ingrese el Telefono del cliente porfavor, es un dato requerido")
-        End If
-    End Sub
-
-    Private Sub txtDNI_Validating(sender As Object, e As CancelEventArgs) Handles txtDNI.Validating
-        If DirectCast(sender, Windows.Forms.TextBox).Text.Length > 0 Then
-            Me.erroricono.SetError(sender, "")
-        Else
-            Me.erroricono.SetError(sender, "Ingrese el DNI del cliente porfavor, es un dato requerido")
+            Me.erroricono.SetError(sender, "Ingrese el nombre de la categoria porfavor, es un dato requerido")
         End If
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
         limpiar()
         mostrar()
-
     End Sub
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+
         Dim result As DialogResult
 
-        result = MessageBox.Show("Realmente quiere editar los datos del cliente",
-                                 "Editar registro?",
+        result = MessageBox.Show("Realmente quiere editar la categoria",
+                                 "Editar?",
                                  MessageBoxButtons.OKCancel,
                                  MessageBoxIcon.Question)
 
         If result = DialogResult.OK Then
 
             If Me.ValidateChildren = True And
-               txtIdCliente.Text <> "" And
-               txtNombres.Text <> "" And
-               txtApellidos.Text <> "" And
-               txtTelefono.Text <> "" And
-               txtDireccion.Text <> "" And
-               txtDNI.Text <> "" Then
+               txtIdCategoria.Text <> "" And
+               txtNombre.Text <> "" Then
 
                 Try
-                    Dim dts As New vcliente
-                    Dim func As New fcliente
+                    Dim dts As New vcategoria
+                    Dim func As New fcategoria
 
-                    dts.gidcliente = txtIdCliente.Text
-                    dts.gnombre = txtNombres.Text
-                    dts.gapellidos = txtApellidos.Text
-                    dts.gdireccion = txtDireccion.Text
-                    dts.gtelefono = txtTelefono.Text
-                    dts.gdni = txtDNI.Text
+                    dts.gIdCategoria = txtIdCategoria.Text
+                    dts.gNombre = txtNombre.Text
 
                     If func.editar(dts) Then
-                        MessageBox.Show("Cliente editado correctamente",
+                        MessageBox.Show("Categoria editado correctamente",
                                         "Editar registro",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Question)
                         mostrar()
                         limpiar()
                     Else
-                        MessageBox.Show("Cliente no editado",
+                        MessageBox.Show("Categoria no editado",
                                         "Error",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Error)
@@ -187,64 +144,57 @@ Public Class frmcliente
 
         End If
 
-
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
-
-        If Me.ValidateChildren = True And
-           txtNombres.Text <> "" And
-           txtApellidos.Text <> "" And
-           txtTelefono.Text <> "" And
-           txtDireccion.Text <> "" And
-           txtDNI.Text <> "" Then
+        If Me.ValidateChildren And
+           txtNombre.Text <> "" Then
 
             Try
-                Dim dts As New vcliente
-                Dim func As New fcliente
+                Dim objcategoria As New vcategoria
+                Dim fcat As New fcategoria
 
-                dts.gnombre = txtNombres.Text
-                dts.gapellidos = txtApellidos.Text
-                dts.gdireccion = txtDireccion.Text
-                dts.gtelefono = txtTelefono.Text
-                dts.gdni = txtDNI.Text
+                objcategoria.gNombre = txtNombre.Text
 
-                If func.insertar(dts) Then
-                    MsgBox("Cliente registrado correctamente")
+                If fcat.insertar(objcategoria) Then
+                    MessageBox.Show("Categoria ingresado correctamente",
+                                        "Editar registro",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Question)
                     mostrar()
                     limpiar()
                 Else
-                    MsgBox("Error: Cliente no registrado")
-
+                    MessageBox.Show("Categoria no insertada",
+                                        "Error",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Error)
                 End If
+
 
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
-
         Else
-            MsgBox("Faltan ingresar algunos datos")
-
+            MessageBox.Show("Faltan agregar algunos campos",
+                                "Editar registro",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning)
         End If
 
     End Sub
 
     Private Sub dataListado_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dataListado.CellClick
-        txtIdCliente.Text = dataListado.SelectedCells.Item(1).Value
-        txtNombres.Text = dataListado.SelectedCells.Item(2).Value
-        txtApellidos.Text = dataListado.SelectedCells.Item(3).Value
-        txtDireccion.Text = dataListado.SelectedCells.Item(4).Value
-        txtTelefono.Text = dataListado.SelectedCells.Item(5).Value
-        txtDNI.Text = dataListado.SelectedCells.Item(6).Value
+        txtIdCategoria.Text = dataListado.SelectedCells.Item(1).Value
+        txtNombre.Text = dataListado.SelectedCells.Item(2).Value
 
         btnEditar.Visible = True
         btnGuardar.Visible = False
-
     End Sub
 
     Private Sub dataListado_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dataListado.CellContentClick
 
+        ' Leer un poco mas no entiendo
         If e.ColumnIndex = Me.dataListado.Columns.Item("Eliminar").Index Then
 
             Dim chkcell As DataGridViewCheckBoxCell = Me.dataListado.Rows(e.RowIndex).Cells("Eliminar")
@@ -259,12 +209,13 @@ Public Class frmcliente
         Else
             dataListado.Columns.Item("Eliminar").Visible = False
         End If
+
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         Dim result As DialogResult
 
-        result = MessageBox.Show("Realmente quiere eliminar los clientes seleccionados",
+        result = MessageBox.Show("Realmente quiere eliminar las categorias seleccionadas",
                                  "Eliminar registros",
                                  MessageBoxButtons.OKCancel,
                                  MessageBoxIcon.Question)
@@ -276,16 +227,15 @@ Public Class frmcliente
 
                     If marcado Then
 
-                        Dim idCliente As Integer = Convert.ToInt32(row.Cells("idcliente").Value)
+                        Dim idCategoria As Integer = Convert.ToInt32(row.Cells("idcategoria").Value)
 
-                        System.Diagnostics.Debug.WriteLine(idCliente)
-                        Dim vdb As New vcliente
-                        Dim func As New fcliente
-                        vdb.gidcliente = idCliente
+                        Dim objCategoria As New vcategoria
+                        Dim funcCategoria As New fcategoria
+                        objCategoria.gIdCategoria = idCategoria
 
-                        If func.eliminar(vdb) Then
+                        If funcCategoria.eliminar(objCategoria) Then
                         Else
-                            MessageBox.Show("Cliente no fue eliminado",
+                            MessageBox.Show("Categoria no fue eliminado",
                                             "Eliminar registros",
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Information)
@@ -309,4 +259,6 @@ Public Class frmcliente
         Call limpiar()
 
     End Sub
+
+
 End Class
