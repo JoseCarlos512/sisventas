@@ -26,7 +26,9 @@ Public Class frmcategoria
             dt = func.mostrar
             dataListado.Columns.Item("Eliminar").Visible = False
 
+            System.Diagnostics.Debug.WriteLine("Antes del IF")
             If dt.Rows.Count <> 0 Then
+                System.Diagnostics.Debug.WriteLine("Despues del IF")
                 dataListado.DataSource = dt
                 txtBuscar.Enabled = True
                 dataListado.ColumnHeadersVisible = True
@@ -40,7 +42,6 @@ Public Class frmcategoria
             End If
 
         Catch ex As Exception
-            System.Diagnostics.Debug.WriteLine("ERROR1!")
             MsgBox(ex.Message)
         End Try
 
@@ -72,7 +73,6 @@ Public Class frmcategoria
             End If
 
         Catch ex As Exception
-            System.Diagnostics.Debug.WriteLine("ERROR2!")
             MsgBox(ex.Message)
         End Try
     End Sub
@@ -260,5 +260,11 @@ Public Class frmcategoria
 
     End Sub
 
-
+    Private Sub dataListado_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dataListado.CellDoubleClick
+        If txtFlag.Text = "1" Then
+            frmproducto.txtIdCategoria.Text = dataListado.SelectedCells.Item(1).Value
+            frmproducto.txtNombreCategoria.Text = dataListado.SelectedCells.Item(2).Value
+            Me.Close()
+        End If
+    End Sub
 End Class

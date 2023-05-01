@@ -41,6 +41,7 @@ Partial Class frmcategoria
         Me.lblIdCategoria = New System.Windows.Forms.Label()
         Me.txtIdCategoria = New System.Windows.Forms.TextBox()
         Me.erroricono = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.txtFlag = New System.Windows.Forms.TextBox()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dataListado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -139,9 +140,9 @@ Partial Class frmcategoria
         Me.GroupBox1.Controls.Add(Me.txtIdCategoria)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.Color.SteelBlue
-        Me.GroupBox1.Location = New System.Drawing.Point(24, 27)
+        Me.GroupBox1.Location = New System.Drawing.Point(24, 115)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(351, 301)
+        Me.GroupBox1.Size = New System.Drawing.Size(351, 213)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Mantenimiento"
@@ -150,7 +151,7 @@ Partial Class frmcategoria
         '
         Me.btnEditar.BackColor = System.Drawing.Color.Teal
         Me.btnEditar.ForeColor = System.Drawing.Color.White
-        Me.btnEditar.Location = New System.Drawing.Point(145, 262)
+        Me.btnEditar.Location = New System.Drawing.Point(146, 147)
         Me.btnEditar.Name = "btnEditar"
         Me.btnEditar.Size = New System.Drawing.Size(75, 23)
         Me.btnEditar.TabIndex = 15
@@ -161,7 +162,7 @@ Partial Class frmcategoria
         '
         Me.btnCancelar.BackColor = System.Drawing.Color.Teal
         Me.btnCancelar.ForeColor = System.Drawing.Color.White
-        Me.btnCancelar.Location = New System.Drawing.Point(243, 262)
+        Me.btnCancelar.Location = New System.Drawing.Point(244, 147)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
         Me.btnCancelar.TabIndex = 14
@@ -172,7 +173,7 @@ Partial Class frmcategoria
         '
         Me.btnGuardar.BackColor = System.Drawing.Color.Teal
         Me.btnGuardar.ForeColor = System.Drawing.Color.White
-        Me.btnGuardar.Location = New System.Drawing.Point(145, 262)
+        Me.btnGuardar.Location = New System.Drawing.Point(146, 147)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(75, 23)
         Me.btnGuardar.TabIndex = 13
@@ -183,7 +184,7 @@ Partial Class frmcategoria
         '
         Me.btnNuevo.BackColor = System.Drawing.Color.Teal
         Me.btnNuevo.ForeColor = System.Drawing.Color.White
-        Me.btnNuevo.Location = New System.Drawing.Point(35, 262)
+        Me.btnNuevo.Location = New System.Drawing.Point(36, 147)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 23)
         Me.btnNuevo.TabIndex = 12
@@ -193,7 +194,7 @@ Partial Class frmcategoria
         'lblNombre
         '
         Me.lblNombre.AutoSize = True
-        Me.lblNombre.Location = New System.Drawing.Point(38, 95)
+        Me.lblNombre.Location = New System.Drawing.Point(33, 96)
         Me.lblNombre.Name = "lblNombre"
         Me.lblNombre.Size = New System.Drawing.Size(50, 13)
         Me.lblNombre.TabIndex = 3
@@ -201,7 +202,7 @@ Partial Class frmcategoria
         '
         'txtNombre
         '
-        Me.txtNombre.Location = New System.Drawing.Point(172, 88)
+        Me.txtNombre.Location = New System.Drawing.Point(167, 89)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(152, 20)
         Me.txtNombre.TabIndex = 2
@@ -209,7 +210,7 @@ Partial Class frmcategoria
         'lblIdCategoria
         '
         Me.lblIdCategoria.AutoSize = True
-        Me.lblIdCategoria.Location = New System.Drawing.Point(38, 50)
+        Me.lblIdCategoria.Location = New System.Drawing.Point(33, 51)
         Me.lblIdCategoria.Name = "lblIdCategoria"
         Me.lblIdCategoria.Size = New System.Drawing.Size(72, 13)
         Me.lblIdCategoria.TabIndex = 1
@@ -217,7 +218,7 @@ Partial Class frmcategoria
         '
         'txtIdCategoria
         '
-        Me.txtIdCategoria.Location = New System.Drawing.Point(172, 43)
+        Me.txtIdCategoria.Location = New System.Drawing.Point(167, 44)
         Me.txtIdCategoria.Name = "txtIdCategoria"
         Me.txtIdCategoria.Size = New System.Drawing.Size(152, 20)
         Me.txtIdCategoria.TabIndex = 0
@@ -226,11 +227,20 @@ Partial Class frmcategoria
         '
         Me.erroricono.ContainerControl = Me
         '
+        'txtFlag
+        '
+        Me.txtFlag.Location = New System.Drawing.Point(223, 56)
+        Me.txtFlag.Name = "txtFlag"
+        Me.txtFlag.Size = New System.Drawing.Size(152, 20)
+        Me.txtFlag.TabIndex = 16
+        Me.txtFlag.Text = "0"
+        '
         'frmcategoria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 349)
+        Me.Controls.Add(Me.txtFlag)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "frmcategoria"
@@ -242,6 +252,7 @@ Partial Class frmcategoria
         Me.GroupBox1.PerformLayout()
         CType(Me.erroricono, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -263,4 +274,5 @@ Partial Class frmcategoria
     Friend WithEvents txtIdCategoria As Windows.Forms.TextBox
     Friend WithEvents btnEditar As Windows.Forms.Button
     Friend WithEvents erroricono As Windows.Forms.ErrorProvider
+    Friend WithEvents txtFlag As Windows.Forms.TextBox
 End Class

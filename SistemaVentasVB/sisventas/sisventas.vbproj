@@ -47,7 +47,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>sisventas.frmcategoria</StartupObject>
+    <StartupObject>sisventas.frmproducto</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -147,6 +147,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reportes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_imagen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_imagen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blanco.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
