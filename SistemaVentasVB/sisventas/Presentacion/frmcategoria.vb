@@ -32,13 +32,13 @@ Public Class frmcategoria
                 dataListado.DataSource = dt
                 txtBuscar.Enabled = True
                 dataListado.ColumnHeadersVisible = True
-                inexistente.Visible = True
+                inexistente.Visible = False
 
             Else
                 dataListado.DataSource = Nothing
                 txtBuscar.Enabled = False
                 dataListado.ColumnHeadersVisible = False
-                inexistente.Visible = False
+                inexistente.Visible = True
             End If
 
         Catch ex As Exception
@@ -50,7 +50,7 @@ Public Class frmcategoria
         btnEditar.Visible = False
         btnGuardar.Visible = True
 
-        buscar()
+        'buscar()
 
     End Sub
 
@@ -65,7 +65,7 @@ Public Class frmcategoria
 
             If dv.Count <> 0 Then
                 inexistente.Visible = False
-                dataListado.DataSource = dv
+                'dataListado.DataSource = dv
                 ocultar_columnas()
             Else
                 inexistente.Visible = True
@@ -264,6 +264,8 @@ Public Class frmcategoria
         If txtFlag.Text = "1" Then
             frmproducto.txtIdCategoria.Text = dataListado.SelectedCells.Item(1).Value
             frmproducto.txtNombreCategoria.Text = dataListado.SelectedCells.Item(2).Value
+            ' Clear information que se guardaba en la tabla dataListado del dialogo
+            dataListado.DataSource = Nothing
             Me.Close()
         End If
     End Sub

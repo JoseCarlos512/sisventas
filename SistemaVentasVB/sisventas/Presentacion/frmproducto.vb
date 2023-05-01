@@ -34,7 +34,7 @@ Public Class frmproducto
             dataListado.Columns.Item("Eliminar").Visible = False
 
             If dt.Rows.Count <> 0 Then
-                dataListado.DataSource = dt
+                'dataListado.DataSource = dt
                 txtBuscar.Enabled = True
                 dataListado.ColumnHeadersVisible = True
                 inexistente.Visible = True
