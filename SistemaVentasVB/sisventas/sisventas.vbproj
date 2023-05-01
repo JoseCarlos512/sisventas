@@ -47,7 +47,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>sisventas.frmproducto</StartupObject>
+    <StartupObject>sisventas.frmventa</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -77,10 +77,14 @@
     <Compile Include="Datos\conexion.vb" />
     <Compile Include="Datos\fcategoria.vb" />
     <Compile Include="Datos\fcliente.vb" />
+    <Compile Include="Datos\fdetalle_venta.vb" />
     <Compile Include="Datos\fproducto.vb" />
+    <Compile Include="Datos\fventa.vb" />
     <Compile Include="Logica\vcategoria.vb" />
     <Compile Include="Logica\vcliente.vb" />
+    <Compile Include="Logica\vdetalle_venta.vb" />
     <Compile Include="Logica\vproducto.vb" />
+    <Compile Include="Logica\vventa.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -109,10 +113,22 @@
     <Compile Include="Presentacion\frmcliente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Presentacion\frmdetalle_venta.Designer.vb">
+      <DependentUpon>frmdetalle_venta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmdetalle_venta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Presentacion\frmproducto.Designer.vb">
       <DependentUpon>frmproducto.vb</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\frmproducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmventa.Designer.vb">
+      <DependentUpon>frmventa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmventa.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -129,8 +145,14 @@
     <EmbeddedResource Include="Presentacion\frmcliente.resx">
       <DependentUpon>frmcliente.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmdetalle_venta.resx">
+      <DependentUpon>frmdetalle_venta.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmproducto.resx">
       <DependentUpon>frmproducto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmventa.resx">
+      <DependentUpon>frmventa.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -309,4 +309,14 @@ Public Class frmcliente
         Call limpiar()
 
     End Sub
+
+    Private Sub dataListado_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dataListado.CellDoubleClick
+        If txtFlag.Text = "1" Then
+            frmventa.txtIdCliente.Text = dataListado.SelectedCells.Item(1).Value
+            frmventa.txtNombreCliente.Text = dataListado.SelectedCells.Item(2).Value
+            dataListado.DataSource = Nothing
+            Me.Close()
+        End If
+
+    End Sub
 End Class

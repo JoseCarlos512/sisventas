@@ -266,6 +266,7 @@ ventas.tipo_documento, ventas.num_documento
 from ventas
 inner join cliente
 on ventas.idcliente = cliente.idcliente
+order by ventas.idventa desc
 go
 
 -- DETALLE VENTA
@@ -303,7 +304,13 @@ go
 
 create proc mostrar_detalle_venta
 as
-select * from detalle_venta order by iddetalle_venta desc
+select 
+detalle_venta.iddetalle_venta, detalle_venta.idventa, detalle_venta.idproducto,
+producto.nombre, detalle_venta.cantidad, detalle_venta.precio_unitario
+from detalle_venta 
+inner join producto
+on detalle_venta.idproducto = producto.idproducto
+order by iddetalle_venta desc
 go
 
 create proc aumentar_stock
