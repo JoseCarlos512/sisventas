@@ -44,6 +44,8 @@ Public Class frmdetalle_venta
                 dataListado.ColumnHeadersVisible = True
                 inexistente.Visible = True
 
+                ocultar_columnas()
+
             Else
                 dataListado.DataSource = Nothing
                 txtBuscar.Enabled = False
@@ -92,6 +94,7 @@ Public Class frmdetalle_venta
     Private Sub ocultar_columnas()
         dataListado.Columns(1).Visible = False
         dataListado.Columns(2).Visible = False
+        dataListado.Columns(3).Visible = False
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
@@ -219,7 +222,6 @@ Public Class frmdetalle_venta
         ' Crear variable de sesion con la cantidad
         before_cant = dataListado.SelectedCells.Item(5).Value
 
-
         btnEditar.Visible = True
         btnGuardar.Visible = False
 
@@ -265,5 +267,58 @@ Public Class frmdetalle_venta
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
         frmproducto.txtFlag.Text = "1"
         frmproducto.ShowDialog()
+    End Sub
+
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+
+        Dim result As DialogResult
+
+        result = MessageBox.Show("Realmente quiere quitar articulos del detalle",
+                                 "Quitar producto",
+                                 MessageBoxButtons.OKCancel,
+                                 MessageBoxIcon.Question)
+
+        If result = DialogResult.OK Then
+            Try
+                For Each row As DataGridViewRow In dataListado.Rows
+                    Dim marcado As Boolean = Convert.ToBoolean(row.Cells("Eliminar").Value)
+
+                    If marcado Then
+
+                        Dim iddetalle_venta As Integer = Convert.ToInt32(row.Cells("iddetalle_venta").Value)
+
+                        Dim vdb As New vdetalle_venta
+                        Dim func As New fdetalle_venta
+                        vdb.giddetalle_venta = iddetalle_venta
+
+                        If func.eliminar(vdb) Then
+                        Else
+                            MessageBox.Show("Articulo no fue eliminado",
+                                            "Eliminar registros",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Information)
+                        End If
+
+                    End If
+
+                Next
+                Call mostrar()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        Else
+            MessageBox.Show("Cancelando eliminacion de registros",
+                            "Eliminar registros",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information)
+            Call mostrar()
+        End If
+
+        Call limpiar()
+
+    End Sub
+
+    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+        Me.Close()
     End Sub
 End Class

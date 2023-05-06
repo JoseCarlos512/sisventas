@@ -386,6 +386,7 @@ Public Class frmproducto
         If txtFlag.Text = "1" Then
             frmdetalle_venta.txtIdProducto.Text = dataListado.SelectedCells.Item(1).Value
             frmdetalle_venta.txtNameProducto.Text = dataListado.SelectedCells.Item(4).Value
+            frmdetalle_venta.txtStock.Value = dataListado.SelectedCells.Item(6).Value
             ' Clear information que se guardaba en la tabla dataListado del dialogo
             dataListado.DataSource = Nothing
             Me.Close()

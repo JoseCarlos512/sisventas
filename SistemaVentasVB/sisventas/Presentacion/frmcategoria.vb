@@ -269,4 +269,8 @@ Public Class frmcategoria
             Me.Close()
         End If
     End Sub
+
+    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+        Me.Close()
+    End Sub
 End Class
