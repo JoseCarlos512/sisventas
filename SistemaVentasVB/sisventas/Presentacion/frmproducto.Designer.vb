@@ -60,6 +60,7 @@ Partial Class frmproducto
         Me.txtIdProducto = New System.Windows.Forms.TextBox()
         Me.erroricono = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.dlgDialogo = New System.Windows.Forms.OpenFileDialog()
+        Me.txtFlag = New System.Windows.Forms.TextBox()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dataListado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -151,6 +152,7 @@ Partial Class frmproducto
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.txtFlag)
         Me.GroupBox1.Controls.Add(Me.pbxDelete)
         Me.GroupBox1.Controls.Add(Me.pbxCargar)
         Me.GroupBox1.Controls.Add(Me.pbImagen)
@@ -429,6 +431,13 @@ Partial Class frmproducto
         '
         Me.dlgDialogo.FileName = "OpenFileDialog1"
         '
+        'txtFlag
+        '
+        Me.txtFlag.Location = New System.Drawing.Point(335, 17)
+        Me.txtFlag.Name = "txtFlag"
+        Me.txtFlag.Size = New System.Drawing.Size(100, 20)
+        Me.txtFlag.TabIndex = 27
+        '
         'frmproducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -489,4 +498,5 @@ Partial Class frmproducto
     Friend WithEvents Label8 As Windows.Forms.Label
     Friend WithEvents txtFechaVencimiento As Windows.Forms.DateTimePicker
     Friend WithEvents dlgDialogo As Windows.Forms.OpenFileDialog
+    Friend WithEvents txtFlag As Windows.Forms.TextBox
 End Class

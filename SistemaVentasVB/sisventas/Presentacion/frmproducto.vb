@@ -380,4 +380,15 @@ Public Class frmproducto
         frmcategoria.txtFlag.Text = "1"
         frmcategoria.ShowDialog()
     End Sub
+
+    Private Sub dataListado_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dataListado.CellDoubleClick
+        ' Lo que se escogio mandar al formulario de detalle
+        If txtFlag.Text = "1" Then
+            frmdetalle_venta.txtIdProducto.Text = dataListado.SelectedCells.Item(1).Value
+            frmdetalle_venta.txtNameProducto.Text = dataListado.SelectedCells.Item(4).Value
+            ' Clear information que se guardaba en la tabla dataListado del dialogo
+            dataListado.DataSource = Nothing
+            Me.Close()
+        End If
+    End Sub
 End Class

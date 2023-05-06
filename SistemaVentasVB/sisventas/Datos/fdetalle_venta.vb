@@ -28,6 +28,32 @@ Public Class fdetalle_venta
         End Try
     End Function
 
+    Public Function mostrar_ventaxdetalle(ByVal dts As vdetalle_venta) As DataTable
+        Try
+            conectado()
+            cmd = New SqlCommand("mostrar_detalle_venta_x_venta")
+            cmd.CommandType = CommandType.StoredProcedure
+
+            cmd.Connection = cnn
+
+            cmd.Parameters.AddWithValue("@idventa", dts.gidventa)
+
+            If cmd.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmd)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            desconectado()
+        End Try
+    End Function
+
     Public Function insertar(ByVal dts As vdetalle_venta) As Boolean
         Try
             conectado()

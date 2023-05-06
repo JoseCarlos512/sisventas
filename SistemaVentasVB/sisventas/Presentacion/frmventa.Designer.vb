@@ -63,12 +63,12 @@ Partial Class frmventa
         Me.GroupBox2.Controls.Add(Me.dataListado)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.SteelBlue
-        Me.GroupBox2.Location = New System.Drawing.Point(462, 28)
+        Me.GroupBox2.Location = New System.Drawing.Point(421, 28)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(377, 395)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Listado de Clientes"
+        Me.GroupBox2.Text = "Lista de Ventas"
         '
         'cbo_eliminar
         '
@@ -154,7 +154,7 @@ Partial Class frmventa
         Me.GroupBox1.ForeColor = System.Drawing.Color.SteelBlue
         Me.GroupBox1.Location = New System.Drawing.Point(24, 27)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(406, 396)
+        Me.GroupBox1.Size = New System.Drawing.Size(361, 396)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Mantenimiento"
@@ -163,7 +163,7 @@ Partial Class frmventa
         '
         Me.cboTipoDocumento.FormattingEnabled = True
         Me.cboTipoDocumento.Items.AddRange(New Object() {"Boleta", "Factura"})
-        Me.cboTipoDocumento.Location = New System.Drawing.Point(172, 182)
+        Me.cboTipoDocumento.Location = New System.Drawing.Point(136, 182)
         Me.cboTipoDocumento.Name = "cboTipoDocumento"
         Me.cboTipoDocumento.Size = New System.Drawing.Size(197, 21)
         Me.cboTipoDocumento.TabIndex = 19
@@ -172,7 +172,7 @@ Partial Class frmventa
         'txtFecha
         '
         Me.txtFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.txtFecha.Location = New System.Drawing.Point(172, 133)
+        Me.txtFecha.Location = New System.Drawing.Point(136, 133)
         Me.txtFecha.Name = "txtFecha"
         Me.txtFecha.Size = New System.Drawing.Size(200, 20)
         Me.txtFecha.TabIndex = 18
@@ -181,7 +181,7 @@ Partial Class frmventa
         '
         Me.Button1.BackColor = System.Drawing.Color.Teal
         Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(294, 86)
+        Me.Button1.Location = New System.Drawing.Point(258, 86)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 17
@@ -190,7 +190,7 @@ Partial Class frmventa
         '
         'txtNombreCliente
         '
-        Me.txtNombreCliente.Location = New System.Drawing.Point(232, 88)
+        Me.txtNombreCliente.Location = New System.Drawing.Point(196, 88)
         Me.txtNombreCliente.Name = "txtNombreCliente"
         Me.txtNombreCliente.Size = New System.Drawing.Size(54, 20)
         Me.txtNombreCliente.TabIndex = 16
@@ -259,7 +259,7 @@ Partial Class frmventa
         '
         'txtNumeroDocumento
         '
-        Me.txtNumeroDocumento.Location = New System.Drawing.Point(172, 232)
+        Me.txtNumeroDocumento.Location = New System.Drawing.Point(136, 232)
         Me.txtNumeroDocumento.Name = "txtNumeroDocumento"
         Me.txtNumeroDocumento.Size = New System.Drawing.Size(197, 20)
         Me.txtNumeroDocumento.TabIndex = 6
@@ -284,7 +284,7 @@ Partial Class frmventa
         '
         'txtIdCliente
         '
-        Me.txtIdCliente.Location = New System.Drawing.Point(172, 88)
+        Me.txtIdCliente.Location = New System.Drawing.Point(136, 88)
         Me.txtIdCliente.Name = "txtIdCliente"
         Me.txtIdCliente.Size = New System.Drawing.Size(54, 20)
         Me.txtIdCliente.TabIndex = 2
@@ -300,7 +300,7 @@ Partial Class frmventa
         '
         'txtIdVenta
         '
-        Me.txtIdVenta.Location = New System.Drawing.Point(172, 43)
+        Me.txtIdVenta.Location = New System.Drawing.Point(136, 43)
         Me.txtIdVenta.Name = "txtIdVenta"
         Me.txtIdVenta.Size = New System.Drawing.Size(197, 20)
         Me.txtIdVenta.TabIndex = 0
@@ -310,7 +310,7 @@ Partial Class frmventa
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(872, 514)
+        Me.ClientSize = New System.Drawing.Size(821, 514)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "frmventa"

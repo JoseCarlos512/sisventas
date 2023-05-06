@@ -313,6 +313,19 @@ on detalle_venta.idproducto = producto.idproducto
 order by iddetalle_venta desc
 go
 
+create proc mostrar_detalle_venta_x_venta
+@idventa as integer
+as
+select 
+detalle_venta.iddetalle_venta, detalle_venta.idventa, detalle_venta.idproducto,
+producto.nombre, detalle_venta.cantidad, detalle_venta.precio_unitario
+from detalle_venta 
+inner join producto
+on detalle_venta.idproducto = producto.idproducto
+where detalle_venta.idventa = @idventa
+order by iddetalle_venta desc
+go
+
 create proc aumentar_stock
 @idproducto as integer,
 @cantidad as decimal(18,2)
@@ -334,7 +347,8 @@ go
 
 
 
-
+-- SELECTS
+SELECT * FROM detalle_venta
 
 
 

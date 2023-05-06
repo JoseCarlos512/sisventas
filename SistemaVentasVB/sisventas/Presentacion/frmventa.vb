@@ -229,9 +229,9 @@ Public Class frmventa
         frmdetalle_venta.txtIdVenta.Text = dataListado.SelectedCells.Item(1).Value
         frmdetalle_venta.txtIdCliente.Text = dataListado.SelectedCells.Item(2).Value
         frmdetalle_venta.txtNombreCliente.Text = dataListado.SelectedCells.Item(3).Value
-        frmdetalle_venta.txtFecha.Text = dataListado.SelectedCells.Item(5).Value
-        frmdetalle_venta.cboTipoDocumento.Text = dataListado.SelectedCells.Item(6).Value
-        frmdetalle_venta.txtNumeroDocumento.Text = dataListado.SelectedCells.Item(7).Value
+        'frmdetalle_venta.txtFecha.Text = dataListado.SelectedCells.Item(5).Value
+        'frmdetalle_venta.cboTipoDocumento.Text = dataListado.SelectedCells.Item(6).Value
+        'frmdetalle_venta.txtNumeroDocumento.Text = dataListado.SelectedCells.Item(7).Value
 
         frmdetalle_venta.ShowDialog()
     End Sub
