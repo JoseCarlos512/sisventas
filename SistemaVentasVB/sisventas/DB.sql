@@ -344,12 +344,25 @@ go
 
 
 
+--Generar reportes con nuevos procedimientos almacenados
 
-
+create proc generar_comprobante
+@idventa int
+as
+SELECT 
+vt.idventa, cl.nombre, cl.apellidos, cl.dni, vt.fecha_venta, vt.tipo_documento, vt.num_documento,
+pt.descripcion, dvt.cantidad, dvt.precio_unitario, (dvt.cantidad*dvt.precio_unitario) as total_parcial
+FROM ventas vt
+inner join detalle_venta dvt
+on vt.idventa = dvt.idventa
+inner join producto pt
+on dvt.idproducto = pt.idproducto
+inner join cliente cl
+on vt.idcliente = cl.idcliente
 
 -- SELECTS
 SELECT * FROM detalle_venta
-
+SELECT * FROM producto
 
 
 
