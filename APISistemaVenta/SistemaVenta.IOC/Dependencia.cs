@@ -8,6 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SistemaVenta.DAL.Repositorios.Contrato;
+using SistemaVenta.DAL.Repositorios;
+using SistemaVenta.Utility;
 
 namespace SistemaVenta.IOC
 {
@@ -21,6 +24,12 @@ namespace SistemaVenta.IOC
                 // Regresando la cadena de conexion a DBVentaContext (Se quito pero se agrega de manera segura)
                 Options.UseSqlServer(configuration.GetConnectionString("cadenaSQL"));
             });
+
+            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IVentaRepository, VentaRepository>();
+
+            // Se agrego la dependencia de automaper de clases (modelos) -> dto y dto -> clases (modelos)
+            services.AddAutoMapper(typeof(AutoMapperProfile));
         }
 
     }

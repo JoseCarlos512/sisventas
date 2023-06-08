@@ -1,14 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "a6zTjzasV9CWxpWi8e9Mnl7V8UkwhIuDx3KzRT4tyx9Jr4AW0ztLBKG1+4GDq0I1v3Dp73T+UjVJApTGtr4R7Q==",
+  "dgSpecHash": "jxoR+OyYd5e9RozDB+ZIQJkG+uHKEpwZMmCOeHG8nBmyDnLwoFTSzQ9GQLdfIygyCZJf4mbQYvNsarwWTm5vBg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ljose\\OneDrive\\Escritorio\\Workspace\\APISistemaVenta\\SistemaVenta.API\\SistemaVenta.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ljose\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\ljose\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\ljose\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\ljose\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\ljose\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.5\\microsoft.aspnetcore.openapi.7.0.5.nupkg.sha512",
     "C:\\Users\\ljose\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
-    "C:\\Users\\ljose\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\ljose\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\ljose\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",
     "C:\\Users\\ljose\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.0.1\\microsoft.data.sqlclient.sni.runtime.5.0.1.nupkg.sha512",
     "C:\\Users\\ljose\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.1\\microsoft.entityframeworkcore.7.0.1.nupkg.sha512",

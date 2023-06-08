@@ -9,7 +9,7 @@ using SistemaVenta.DAL.DBContext;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace SistemaVenta.DAL.Repositorios.Contrato
+namespace SistemaVenta.DAL.Repositorios
 {
     public class GenericRepository<TModel> : IGenericRepository<TModel> where TModel : class
     {
@@ -27,11 +27,14 @@ namespace SistemaVenta.DAL.Repositorios.Contrato
 
         public async Task<TModel> Obtener(Expression<Func<TModel, bool>> filtro)
         {
-            try {
+            try
+            {
                 TModel model = await _dbContext.Set<TModel>().FirstOrDefaultAsync(filtro);
                 return model;
-            } catch (Exception ex) {
-                throw;  
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
 
