@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace SistemaVenta.BLL.Servicios
 {
-    internal class DashBoardService:IDashBoardService
+    public class DashBoardService:IDashBoardService
     {
         private readonly IVentaRepository _VentaRepository;
         private readonly IGenericRepository<Producto> _productoRepositorio;
@@ -65,7 +65,7 @@ namespace SistemaVenta.BLL.Servicios
 
             IQueryable<Producto> _productoQuery = await _productoRepositorio.Consultar();
 
-            int total = _productoQuery.Count;
+            int total = _productoQuery.Count();
             return total;
         }
 
